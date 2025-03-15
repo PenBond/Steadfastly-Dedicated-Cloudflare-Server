@@ -581,7 +581,7 @@ function getConfigInfo(password, domainAddress) {
     const sni = domainAddress;
     const fingerprint = 'randomized';
 
-    const v2ray = `${protocolType}://${encodeURIComponent(password)}@${address}:${port}?security=${transportSecurity[0]}&sni=${sni}&alpn=h3&fp=${fingerprint}&allowInsecure=1&type=${transportProtocol}&host=${disguiseDomain}&path=${encodeURIComponent(path)}#${encodeURIComponent(alias)}`;
+    const v2ray = `${protocolType}://${encodeURIComponent(password)}@${address}:${port}?security=${transportSecurity[0]}&sni=${sni}&alpn=h3&fp=${fingerprint}&allowInsecure=0&type=${transportProtocol}&host=${disguiseDomain}&path=${encodeURIComponent(path)}#${encodeURIComponent(alias)}`;
     const clash = `- {name: ${alias}, server: ${address}, port: ${port}, udp: false, client-fingerprint: ${fingerprint}, type: ${protocolType}, password: ${password}, sni: ${sni}, alpn: [h3], skip-cert-verify: true, network: ${transportProtocol}, ws-opts: {path: "${path}", headers: {Host: ${disguiseDomain}}}}`;
     return [v2ray, clash];
 }
